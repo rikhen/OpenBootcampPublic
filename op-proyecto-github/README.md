@@ -38,4 +38,8 @@ El programa es un cliente para usar la GitHub API
 
 ### Inicio del programa
 
-Inicia el programa `main` y inserta el nombre del usuario de GitHub a través de la consola:
+1. Añade un **personal access token** de GitHub via https://github.com/settings/tokens
+
+2. Abre el fichero`Authentication.java`
+   * Inserta el token aquí: `private String token = "<your token here>";`
+3. Inicia el programa `main` y inserta el nombre del usuario de GitHub a través de la consola.

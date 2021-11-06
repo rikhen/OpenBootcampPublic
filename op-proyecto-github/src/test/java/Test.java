@@ -1,6 +1,6 @@
 //import services.Repository;
 
-import githubAPI.*;
+import Client.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Test {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        GitHub gitHub = new GitHub();
+        GitHubAPI gitHubAPI = new GitHubAPI();
         User user = new User();
 
         ArrayList<Repository> repositories = new ArrayList();
@@ -25,20 +25,20 @@ public class Test {
         repositories.add(repository2);
         for (Repository repository : repositories) {
             System.out.println("-------------------------------------------");
-            int numberFilesXml = gitHub.countFiles(user, repository, "xml");
-            int numberFilesJava = gitHub.countFiles(user, repository, "java");
+            int numberFilesXml = gitHubAPI.countFiles(user, repository, "xml");
+            int numberFilesJava = gitHubAPI.countFiles(user, repository, "java");
             System.out.print("Repository: " + repository.getName());
             System.out.println(" (" + numberFilesXml + " xml " +  "," + numberFilesJava + " java" + ")");
             System.out.println("-------------------------------------------");
             System.out.println("Commits: ");
 
-            gitHub.getCommits(user, repository);
-            commits = gitHub.getCommitList();
+            gitHubAPI.getCommits(user, repository);
+            commits = gitHubAPI.getCommitList();
             for (Commit commit : commits) {
                 System.out.println(" --> " + commit.getMessage());
             }
             System.out.println("Files:");
-            gitHub.getRepositoryTree(user, repository);
+            gitHubAPI.getRepositoryTree(user, repository);
 
         }
 
