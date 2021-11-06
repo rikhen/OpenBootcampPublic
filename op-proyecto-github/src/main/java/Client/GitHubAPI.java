@@ -1,4 +1,4 @@
-package githubAPI;
+package Client;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GitHub {
+public class GitHubAPI {
 
     // ATTRIBUTES
     private final String baseUrl = "https://api.github.com/";
@@ -28,7 +28,7 @@ public class GitHub {
     private ArrayList<Repository> repositories = new ArrayList<>();
 
     // CONSTRUCTORS
-    public GitHub() {
+    public GitHubAPI() {
         okHTTP.setMediatype(mediatype);
     }
 

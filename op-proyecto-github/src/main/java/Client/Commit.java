@@ -1,4 +1,4 @@
-package githubAPI;
+package Client;
 
 public class Commit {
 

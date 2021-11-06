@@ -1,6 +1,6 @@
 package toImplement.services;
 
-import githubAPI.Repository;
+import Client.Repository;
 
 public interface RepositoryService {
 

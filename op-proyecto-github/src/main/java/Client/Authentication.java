@@ -1,10 +1,10 @@
-package githubAPI;
+package Client;
 
 public class Authentication {
 
     // ATTRIBUTES
     private final String scheme = "bearer ";
-    private String token = "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";
+    private String token = "";
 
     // CONSTRUCTORS
     public Authentication() {};

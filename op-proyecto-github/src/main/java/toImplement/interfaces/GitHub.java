@@ -1,9 +1,9 @@
 package toImplement.interfaces;
 
-import githubAPI.Commit;
-import githubAPI.Directory;
-import githubAPI.File;
-import githubAPI.Repository;
+import Client.Commit;
+import Client.Directory;
+import Client.File;
+import Client.Repository;
 
 import java.util.ArrayList;
 

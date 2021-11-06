@@ -1,6 +1,6 @@
 package toImplement.services;
 
-import githubAPI.Commit;
+import Client.Commit;
 
 import java.util.List;
 
