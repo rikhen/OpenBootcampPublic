@@ -85,13 +85,9 @@ public class GitHubAPI {
                 e.printStackTrace();
             }
         } else {
-            try {
                 Commit commit = new Commit();
                 commit.setMessage("no commits");
                 commits.add(commit);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         this.setCommitList(commits);
     }
