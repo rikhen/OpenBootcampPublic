@@ -39,6 +39,7 @@ public class GitHubAPI {
         // https://api.github.com/users/:user/repos
         okHTTP.setUrl(baseUrl + "users/" + userName + "/repos");
         responseMessage = okHTTP.getResponse(okHTTP.sendRequest());
+        System.out.println(responseMessage);
         try {
             JSONArray jsonArray = new JSONArray(responseMessage);
             for (int i = 0; i < jsonArray.length(); i++) {

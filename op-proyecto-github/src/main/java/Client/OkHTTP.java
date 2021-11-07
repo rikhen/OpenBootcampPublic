@@ -14,7 +14,7 @@ public class OkHTTP {
     private String mediatype;
     private String url;
 
-    private Authentication auth = new Authentication();
+    OAuth oAuth = OAuth.getInstance();
 
     // CONSTRUCTORS
     public OkHTTP() {};
@@ -27,7 +27,7 @@ public class OkHTTP {
     public Request sendRequest() throws IOException, InterruptedException {
         try {
             request = new Request.Builder()
-                    .header("Authorization", auth.authenticate())
+                    .header("Authorization", oAuth.authenticate())
                     .header("accept", getMediatype())
                     .url(getUrl())
                     .build();
@@ -35,6 +35,7 @@ public class OkHTTP {
             System.out.println(request.body());
             e.printStackTrace();
         }
+        System.out.println(request);
         return request;
     }
 
