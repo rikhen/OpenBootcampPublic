@@ -8,19 +8,19 @@
         <!-- Bootstrap CSS -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles -->
-        <link href="assets/css/form-validation.css" rel="stylesheet">
+        <link href="assets/css/custom.css" rel="stylesheet">
     </head>
-    <body class="bg-light">
+    <body class="bg-dark">
         <div class="container">
             <main>
                 <div class="py-5 text-center">
                     <img class="d-block mx-auto mb-4" src="https://open-bootcamp.com/plasmic/open_bootcamp/images/logoOb2.svg" alt="" width="100%" height="80">
                     <h2>Simulador de cuota de hipoteca</h2>
-                    <p class="lead">Una web simulador de cuota de hipoteca. Para ello, el usuario proporcionará: cantidad (€), número de cuotas (meses) y tipo de interés (%). La página devolverá el importe de la cuota mensual. </p>
+                    <p class="lead text-white">Una web simulador de cuota de hipoteca. Para ello, el usuario proporcionará: cantidad (€), número de cuotas (meses) y tipo de interés (%). La página devolverá el importe de la cuota mensual. </p>
                 </div>
                 <div class="row g-3">
                     <div class="col-md-5 col-lg-4 order-md-last">
-                        <h4 class="d-flex justify-content-left align-items-center mb-3"><span class="badge bg-secondary rounded-pill">2</span> <span class="pl-4 text-muted">Resultado Hipoteca</span></h4>
+                        <h4 class="d-flex justify-content-left align-items-center mb-3"><span class="badge bg-light rounded-pill step-pill text-dark">2</span> <span class="text-muted">Resultado Hipoteca</span></h4>
                         <ul class="list-group mb-3">
                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                 <div>
@@ -39,11 +39,11 @@
                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                 <div>
                                     <h6 class="my-0">TIN</h6>
-                                    <small class="text-muted">Tipo de interés anual</small>
+                                    <small class="text-muted">Tipo de interés mensual</small>
                                 </div>
                                 <span id="interestRate" class="text-muted"></span>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <li class="list-group-item d-flex justify-content-between lh-sm bg-light">
                                 <div>
                                     <h6 class="my-0">Cuota mensual</h6>
                                 </div>
@@ -52,22 +52,22 @@
                         </ul>
                     </div>
                     <div class="col-md-7 col-lg-8">
-                        <h4 class="d-flex justify-content-left align-items-center mb-3 text-muted"><span class="badge bg-secondary rounded-pill">1</span>Entrada usuario </h4>
+                        <h4 class="d-flex justify-content-left align-items-center mb-3 text-muted"><span class="badge bg-light rounded-pill step-pill text-dark">1</span>Entrada usuario </h4>
                         <form id="calculator-form" class="needs-validation" novalidate="" onsubmit="return false">
                             <div class="row g-3">
                                 <div class="col-12">
-                                    <label for="amountInput" class="form-label">Cantidad (€)</label>
+                                    <label for="amountInput" class="form-label text-white">Cantidad (€)</label>
                                     <input type="text" class="form-control" id="amountInput" placeholder="" value="" required="">
                                     <div class="invalid-feedback">
                                         Se requiere una cantidad válida.
 </div>
                                 </div>
                                 <div class="col-12">
-                                    <label for="monthsInput" class="form-label">Número de cuotas (meses)</label>
+                                    <label for="monthsInput" class="form-label text-white">Número de cuotas (meses)</label>
                                     <input type="range" class="form-range" min="0" max="60" step="12" id="monthsInput">
                                 </div>                                 
                                 <div class="col-12">
-                                    <label for="interestRateInput" class="form-label">Típo de interés (%)</label>
+                                    <label for="interestRateInput" class="form-label text-white">Típo de interés (%)</label>
                                     <input type="range" class="form-range" min="0" max="2" step="0.1" id="interestRateInput">
                                 </div>
                             </div>
@@ -88,10 +88,10 @@
                 <p class="mb-1">&copy; 2021 Rikhen</p>
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <a href="#">GitHub</a>
+                        <a href="https://github.com/rikhen/OpenBootcampPublic/tree/main/11_Retos%20Diarios/reto-diario-02">GitHub</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#">OpenBootcamp</a>
+                        <a href="https://open-bootcamp.com/">OpenBootcamp</a>
                     </li>
                 </ul>
             </footer>
