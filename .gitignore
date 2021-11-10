@@ -1,2 +1,11 @@
+# IntelliJ
+**/workspace.xml
 
-*.xml
+# Pinegrow
+**/_pgbackup/
+**/_pginfo/
+**/pinegrow.json
+
+# Misc
+*.zip
+*.log
