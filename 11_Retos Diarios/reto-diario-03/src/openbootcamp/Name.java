@@ -1,5 +1,12 @@
 package openbootcamp;
 
+/**
+ * OpenBootcamp - Reto diario 03
+ * Clase que procesa la entrada del usuario y emite el nombre del compuesto introducido por separado
+ * @author Rikhen
+ * @version 1.0
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -40,9 +47,12 @@ public class Name {
     }
 
     // METHODS
+    /**
+     * Método que divide el nombre introducido en cadenas individuales
+     * @param fullName nombre introducido a través de la consola
+     */
     public void splitName(String fullName) {
         String[] nameArray = fullName.split("\\s+", -1);
-
         switch (nameArray.length) {
             case 1:
                 firstname = nameArray[0];
@@ -98,6 +108,12 @@ public class Name {
         }
     }
 
+    /**
+     * Método que comprueba si el nombre es un nombre compuesto
+     * El archivo compounds.txt contiene todos los nombres compuestos
+     * @param name nombre introducido a través de la consola
+     * @return Boolean
+     */
     public Boolean isCompound(String name) {
         name = name.trim();
 
@@ -119,7 +135,7 @@ public class Name {
             }
         } catch (Exception e) {
             compound = false;
-            e.getMessage();
+            System.out.println("Se ha producido un error! " + e.getMessage());
         }
         return compound;
     }
@@ -128,8 +144,12 @@ public class Name {
     public String toString() {
         return "Name{" +
                 "firstname='" + firstname + '\'' +
-                ", lastname='" + firstSurename + '\'' +
-                ", lastname='" + secondSurename + '\'' +
+                ", middlename='" + middlename + '\'' +
+                ", firstSurename='" + firstSurename + '\'' +
+                ", secondSurename='" + secondSurename + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", compound=" + compound +
+                ", filePath='" + filePath + '\'' +
                 '}';
     }
 

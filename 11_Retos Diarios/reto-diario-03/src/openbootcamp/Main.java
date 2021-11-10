@@ -1,7 +1,14 @@
 package openbootcamp;
 
+/**
+ * OpenBootcamp - Reto diario 03
+ * @author Rikhen
+ * @version 1.0
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class Main {
 
