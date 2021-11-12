@@ -1,7 +1,7 @@
 # IntelliJ
 **/workspace.xml
 **/build/**
-**/out/production/**
+**/out/production**
 **/.gradle/
 
 # Pinegrow
