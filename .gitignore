@@ -1,5 +1,7 @@
 # IntelliJ
 **/workspace.xml
+**/build/**
+**/.gradle/
 
 # Pinegrow
 **/_pgbackup/
