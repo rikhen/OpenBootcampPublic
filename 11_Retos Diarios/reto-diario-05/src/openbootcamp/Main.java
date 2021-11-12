@@ -6,6 +6,7 @@ package openbootcamp;
  * @version 1.0
  */
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -16,6 +17,6 @@ public class Main {
         System.out.println("Introduce una cadena []:");
         String inputString = scanner.nextLine();
 
-        Util.stringToArray(inputString);
+        System.out.println(Util.stringToArray(inputString).toString());;
     }
 }
