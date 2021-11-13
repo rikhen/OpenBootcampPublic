@@ -1,39 +1,43 @@
 package models
 
-class Course(var name: String, var instructor: models.Instructor) {
+import models.Instructor
+import models.Student
 
-    // Inicializamos fuera del constructor un atributo privado
-    private var studentsList: MutableList<models.Student> = arrayListOf()
+class Course(var id: Int, var name: String, var instructor: Instructor) {
 
-    // Métodos
-    fun isStudent(student: models.Student): Boolean {
+    // ATTRIBUTES
+    private var studentsList: MutableList<Student> = arrayListOf()
+
+    // METHODS
+    fun isStudent(student: Student): Boolean {
         if (student in studentsList) {
             return true
         }
         return false
     }
 
-    fun enrol(student: models.Student) {
+    fun enrol(student: Student) {
         if (!isStudent(student)) {
             studentsList.add(student)
-            println("El estudiante ${student.name} ha sido matriculado en el curso ${this.name}.")
+            println("The student ${student.name} has been enrolled in the course ${this.name}.")
         } else {
-            println("El estudiante ${student.name} ya forma parte del curso ${this.name}.")
+            println("The student ${student.name} is already part of the course ${this.name}.")
         }
     }
 
-    fun unenrol(student: models.Student) {
+    fun unenrol(student: Student) {
         if (isStudent(student)) {
             studentsList.remove(student)
-            println("El estudiante ${student.name} ha sido desmatriculado del curso ${this.name}.")
+            println("The student ${student.name} has been de-enrolled from the course ${this.name}.")
         } else {
-            println("El estudiante ${student.name} no forma parte del curso ${this.name}.")
+            println("The student ${student.name} is not part of the course ${this.name}.")
         }
     }
 
     // toString
     override fun toString(): String {
-        return "Course(name='$name', instructor=$instructor, studentsList=$studentsList)"
+        return "Course(id='$id', name='$name', instructor=$instructor, studentsList=$studentsList)"
+
     }
 
 }

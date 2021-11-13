@@ -1,19 +1,29 @@
 package models
 
-import User
+/**
+ * OpenBootcamp - Reto diario 05
+ * Child class administrator of the clase user
+ * @author Rikhen
+ * @version 1.0
+ */
+
+import models.User
 import kotlin.system.exitProcess
 
-// Iniciamos clase extendida de Usuario con constructor principal
-class Administrator(id: Int, name: String, lastname: String, email: String) :
-    User(id, name, lastname, email) {
+// Extend user class with administrator class
+class Administrator(id: Int, role: String, name: String, lastname: String, email: String) :
+    User(id, role, name, lastname, email) {
 
-    fun explotarBootcamp() {
-        println("El administrador ${this.name} ha decidido explotar el Bootcamp y abortar el programa.")
+    // METHODS
+    fun exploitBootcamp() {
+        println("The administrator ${this.name} has decided to exploit Bootcamp and abort the program.")
         exitProcess(0);
     }
 
     override fun toString(): String {
-        return "Usuario(name='$name', lastname='$lastname', email='$email', isLoggedIn=$isLoggedIn, idAdmin='$id')"
+        return "User(id='$id', role='$role', name='$name', lastname='$lastname', email='$email', isLoggedIn=$isLoggedIn)"
     }
+
+
 
 }

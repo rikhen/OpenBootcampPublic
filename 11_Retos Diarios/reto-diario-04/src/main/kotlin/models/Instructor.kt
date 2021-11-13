@@ -1,33 +1,40 @@
 package models
 
-import User
+/**
+ * OpenBootcamp - Reto diario 05
+ * Child class instructor of the clase user
+ * @author Rikhen
+ * @version 1.0
+ */
 
-// Iniciamos clase extendida de Usuario con constructor principal
-class Instructor(id: Int, name: String, lastname: String, email: String, var especialidad: String) :
-    User(id, name, lastname, email) {
+import models.User
 
-    // Inicializamos fuera del constructor un atributo privado
+// Extend user class with instructor class
+class Instructor(id: Int, role: String, name: String, lastname: String, email: String) :
+    User(id, role, name, lastname, email) {
+
+    // ATTRIBUTES
     private var CorrectionsList: HashMap<Student, Course> = hashMapOf()
 
     // METHODS
     fun checkDelivery(course: Course, student: Student) {
         if (!course.isStudent(student)) {
-            println("El estudiante ${student.name} no forma parte del course ${course.name}.")
+            println("The student ${student.name} is not part of the course ${course.name}.")
         } else if (!student.checkDelivery(course)) {
-            println("El estudiante ${student.name} no ha hecho la entrega del course ${course.name}.")
+            println("The student ${student.name} has not delivered anything to the course ${course.name}.")
         } else if (course.instructor != this) {
-            println("El instructor ${this.name} no es el instructor del course ${course.name}.")
+            println("The instructor ${this.name} is not the instructor of the course ${course.name}.")
         } else if (course == CorrectionsList.get(student)) {
-            println("La entrega del estudiante ${student.name} del course ${course.name} ya ha sido corregida.")
+            println("The delivery of the student ${student.name} of the course ${course.name} has been corrected.")
         } else {
             CorrectionsList[student] = course
-            println("La entrega del estudiante ${student.name} del course ${course.name} ha sido corregida por el instructor ${this.name}")
+            println("The student's ${student.name} delivery of the ${course.name} course has been corrected by the instructor ${this.name}.")
         }
     }
 
     // toString
     override fun toString(): String {
-        return "Usuario(name='$name', lastname='$lastname', email='$email', isLoggedIn=$isLoggedIn, especialidad='$especialidad', CorrectionsList='$CorrectionsList')"
+        return "User(id='$id', role='$role', name='$name', lastname='$lastname', email='$email', isLoggedIn=$isLoggedIn, CorrectionsList='$CorrectionsList')"
     }
 
 }
