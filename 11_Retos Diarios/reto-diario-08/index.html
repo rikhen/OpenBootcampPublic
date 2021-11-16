@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content="OpenBootcamp - Reto diario 08"/>
+        <meta name="author" content="Rikhen"/>
+        <title>OpenBootcamp Calendario</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+        <!-- Fontawesome core CSS -->
+        <link href="assets/css/all.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+    </head>
+    <body class="bg-dark">
+        <div class="content">
+            <div class="container-fluid">
+                <main>
+                    <div class="py-5 text-center">
+                        <img class="d-block mx-auto mb-4" src="https://open-bootcamp.com/plasmic/open_bootcamp/images/logoOb2.svg" alt="" width="100%" height="80"/>
+                        <h1 class="text-white">Caliendario Responsible</h1>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center align-self-center">
+                            <form action="#" class="row">
+                                <div class="col-12">
+                                    <div id="inline_cal" data-rome-id="0">
+                                        <div class="ob-container" style="display: inline-block;">
+                                            <div class="ob-calender">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-sm-2 align-self-center">
+                                                        <button id="ob-previous" class="btn btn-outline-dark btn-sm ob-previous" type="button" onclick="previous()">
+                                                            <i class="fa fa-chevron-left"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-sm-8 align-self-center">
+                                                        <div class="row justify-content-center">
+                                                            <div class="ob-month-label">
+                                                                <h4 id="ob-month">Noviembre</h4>
+                                                            </div>
+                                                            <div class="ob-year-label">
+                                                                <h6 id="ob-year">2021</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2 align-self-center">
+                                                        <button id="ob-next" class="btn btn-outline-dark btn-sm ob-next" type="button" onclick="next()">
+                                                            <i class="fa fa-chevron-right"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <table id="ob-days" class="table-borderless ob-days">
+                                                    <thead class="ob-days-head">
+                                                        <tr class="ob-days-row">
+                                                            <th scope="row" class="ob-day-head">Do</th>
+                                                            <th scope="row" class="ob-day-head">Lu</th>
+                                                            <th scope="row" class="ob-day-head">Ma</th>
+                                                            <th scope="row" class="ob-day-head">Mi</th>
+                                                            <th scope="row" class="ob-day-head">Ju</th>
+                                                            <th scope="row" class="ob-day-head">Vi</th>
+                                                            <th scope="row" class="ob-day-head">Sa</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="ob-days-body" data-rome-offset="0">
+                                                        <tr class="ob-days-row">
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                        </tr>
+                                                        <tr class="ob-days-row">
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                        </tr>
+                                                        <tr class="ob-days-row">
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                        </tr>
+                                                        <tr class="ob-days-row">
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                        </tr>
+                                                        <tr class="ob-days-row">
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                        </tr>
+                                                        <tr class="ob-days-row">
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                            <td class="ob-day-body"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+                <footer class="my-5 pt-5 text-muted text-center text-small">
+                    <p class="mb-1">© 2021 Rikhen</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="https://github.com/rikhen/OpenBootcampPublic/tree/main/11_Retos%20Diarios/reto-diario-02">GitHub</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://open-bootcamp.com/">OpenBootcamp</a>
+                        </li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/calender.js"></script>
+        <script>
+      window.onload = function () {
+        initCalender();
+      };
+    </script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+.ob-container {
+    display: none;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ob-day-body {
+    cursor: pointer;
+    text-align: center;
+    line-height: 0;
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.ob-today,
+.ob-time-selected,
+.ob-time-option:hover {
+    cursor: pointer;
+    background-color: #0aef81;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.ob-day-prev-month,
+.ob-day-next-month {
+    color: grey;
+}
