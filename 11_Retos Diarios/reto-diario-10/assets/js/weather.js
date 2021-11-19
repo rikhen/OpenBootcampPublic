@@ -1,5 +1,4 @@
 async function data(...params) {
-  // Get data from OpenWeatherMap
   const key = "3a1f47b82d0214894bc04af03ff4beef";
   try {
     console.log("Trying to fetch json...");
