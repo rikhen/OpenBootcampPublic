@@ -1,4 +1,5 @@
 async function data(...params) {
+  // Get data from OpenWeatherMap
   const key = "3a1f47b82d0214894bc04af03ff4beef";
   try {
     console.log("Trying to fetch json...");
@@ -25,10 +26,11 @@ async function data(...params) {
 }
 
 async function callApi() {
+  // Function to call OpenWeatherMap API
   console.log("Calling OpenWeatherMap API...");
   const units = "metric";
-  var input;
-  var datum;
+  let input;
+  let datum;
 
   // Check whether location was passed or not
   if (arguments.length === 0) {
@@ -49,34 +51,34 @@ async function callApi() {
 
 // import { callApi } from "./api.openweather";
 
-//var location = document.getElementById("location");
-
 async function initWidget() {
+  // Initialize Widget
   console.log("Initializing Widget...");
   updateWidget(await callApi("Santander"));
 }
 
-function getWeather() {}
-
 async function updateWidget(data) {
-  var location = `${data.name},  ${data.sys.country}`;
-  var temp = `${data.main.temp} ${data.units}`;
-  var sensation = `Sensación térmica: ${data.main.feels_like} ${data.units}`;
-  var weather = data.weather[0].description;
-  var wind = `${data.wind.speed} m/s`;
-  var pressure = `${data.main.pressure} hPa`;
-  var humidity = `${data.main.humidity} %`;
-  var sunriseTimestamp = `${data.sys.sunrise}`;
-  var sunsetTimestamp = `${data.sys.sunset}`;
-  var sunrise = convertToTime(sunriseTimestamp);
-  var sunset = convertToTime(sunsetTimestamp);
-  var timezone = `${data.timezone}`;
-  var localTimestamp = getLocalTimestamp(timezone);
-  var localTime = convertToTime(localTimestamp);
-  console.log(localTime);
+  // Update Widget data
+  let location = `${data.name},  ${data.sys.country}`;
+  let temp = `${Math.round(data.main.temp, 2)} ${data.units}`;
+  let sensation = `Sensación térmica:
+    ${Math.round(data.main.feels_like, 2)}
+    ${data.units}`;
+  let weather = data.weather[0].description;
+  let wind = `${data.wind.speed} m/s`;
+  let pressure = `${data.main.pressure} hPa`;
+  let humidity = `${data.main.humidity} %`;
+  let sunriseTimestamp = `${data.sys.sunrise}`;
+  let sunsetTimestamp = `${data.sys.sunset}`;
+  let sunrise = convertToTime(sunriseTimestamp);
+  let sunset = convertToTime(sunsetTimestamp);
+  let timezone = `${data.timezone}`;
+  let localTimestamp = getLocalTimestamp(timezone);
+  let localTime = convertToTime(localTimestamp);
+  console.log("Local time: " + localTime);
 
-  var ampm;
-  var day;
+  let ampm;
+  let day;
   if (isPM(localTime)) {
     ampm = " PM";
   } else {
@@ -85,7 +87,7 @@ async function updateWidget(data) {
 
   isNight(localTimestamp, sunriseTimestamp, sunsetTimestamp);
 
-  var imgSrc = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
+  let imgSrc = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
 
   document.getElementById("location").textContent = location.toUpperCase();
   document.getElementById("time").textContent =
@@ -103,7 +105,8 @@ async function updateWidget(data) {
 }
 
 function convertToTime(timestamp) {
-  var date = new Date(timestamp * 1000),
+  // Convert timestamp to date format
+  let date = new Date(timestamp * 1000),
     datevalues = [
       date.getFullYear(),
       date.getMonth() + 1,
@@ -116,8 +119,9 @@ function convertToTime(timestamp) {
 }
 
 function getLocalTimestamp(timezone) {
-  var date = new Date();
-  var dateUTC = new Date(
+  // format timestamp to UTC
+  let date = new Date();
+  let dateUTC = new Date(
     date.getUTCFullYear(),
     date.getUTCMonth(),
     date.getUTCDate(),
@@ -127,15 +131,16 @@ function getLocalTimestamp(timezone) {
   );
 
   // Calculate timestamp in seconds
-  var timestampUTC = Math.floor(dateUTC / 1000);
-  // Add timezone
-  var localTimestamp = timestampUTC + Math.floor(timezone);
+  let timestampUTC = Math.floor(dateUTC / 1000);
+  // Add timezone offset
+  let localTimestamp = timestampUTC + Math.floor(timezone);
   return localTimestamp;
 }
 
 function timeToString(time) {
-  var hours = time[3];
-  var minutes = time[4];
+  // Converto current time to HH:MM string
+  let hours = time[3];
+  let minutes = time[4];
   hours = ("0" + hours).slice(-2);
   minutes = ("0" + minutes).slice(-2);
 
@@ -143,25 +148,30 @@ function timeToString(time) {
 }
 
 function isPM(time) {
-  var pm = time[3] >= 12 ? true : false;
+  // Check if time is AM or PM
+  let pm = time[3] >= 12 ? true : false;
   return pm;
 }
 
-function isNight(currentTime, sunrise, sunset) {
+function isNight(localTime, sunrise, sunset) {
+  // Check if it's day or night
   let day;
-  currentTime = new Date(currentTime);
+  localTime = new Date(localTime * 1000);
   sunrise = new Date(sunrise * 1000);
   sunset = new Date(sunset * 1000);
 
-  console.log(currentTime + " " + sunset);
-  if (sunset > currentTime > sunset) {
-    day = "bg-night";
-  } else if (sunrise < currentTime < sunset) {
+  if (
+    localTime.getTime() >= sunrise.getTime() &&
+    localTime.getTime() < sunset.getTime()
+  ) {
+    console.log("It's day");
     day = "bg-day";
-  } else if (currentTime > sunset) {
+  } else if (localTime.getTime() > sunset.getTime()) {
+    console.log("It's night");
     day = "bg-night";
   } else {
     day = "bg-day";
   }
+  // Add css class to body
   document.body.className = day;
 }
